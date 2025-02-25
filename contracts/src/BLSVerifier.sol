@@ -40,13 +40,12 @@ contract BLSVerifier {
     function verifySignature(
         bytes memory message,
         BLS.G1Point memory pubKey,
-        BLS.G2Point memory signature,
-        bool negate
+        BLS.G2Point memory signature
     ) public view returns (bool) {
         // Compute H(m): map the message to a point in G2.
         BLS.G2Point memory hm = BLS.hashToG2(message);
 
-        return verifySignatureWithPoint(hm, pubKey, signature, negate);
+        return verifySignatureWithPoint(hm, pubKey, signature, true);
     }
 
     /**
