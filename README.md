@@ -1,6 +1,6 @@
 # Threshold BLS Signatures
 
-Implementation of BLS threshold signatures using BLS12-381 curve with dual verification with support for Ethereum on-chain verification via EIP-2537 precompiles.
+Demo implementation of BLS threshold signatures using BLS12-381 curve with dual verification and support for Ethereum on-chain verification via EIP-2537 precompiles.
 
 ## Features
 
