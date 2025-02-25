@@ -105,12 +105,7 @@ contract BLSVerifierTest is Test {
         );
 
         // Act & Assert
-        bool result = verifier.verifySignature(
-            message,
-            pubKey,
-            signature,
-            true
-        );
+        bool result = verifier.verifySignature(message, pubKey, signature);
         assertTrue(result, "Valid signature should be verified successfully");
     }
 
@@ -140,47 +135,11 @@ contract BLSVerifierTest is Test {
         bool result = verifier.verifySignature(
             differentMessage,
             pubKey,
-            signature,
-            false
+            signature
         );
         assertFalse(
             result,
             "Signature for different message should fail verification"
-        );
-    }
-
-    function test_VerifyWithoutNegation() public view {
-        // Arrange
-        BLS.G1Point memory pubKey = BLS.G1Point(
-            pubKeyX1,
-            pubKeyX2,
-            pubKeyY1,
-            pubKeyY2
-        );
-
-        BLS.G2Point memory signature = BLS.G2Point(
-            sigX0_1,
-            sigX0_2,
-            sigX1_1,
-            sigX1_2,
-            sigY0_1,
-            sigY0_2,
-            sigY1_1,
-            sigY1_2
-        );
-
-        // Verify using negation flag
-        bool resultWithNegation = verifier.verifySignature(
-            message,
-            pubKey,
-            signature,
-            false
-        );
-
-        // The negation flag should change the verification result
-        assertFalse(
-            resultWithNegation,
-            "Verification with negation should produce different result"
         );
     }
 
