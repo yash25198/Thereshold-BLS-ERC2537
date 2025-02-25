@@ -2,6 +2,7 @@
 package main
 
 import (
+	"encoding/hex"
 	"flag"
 	"fmt"
 	"log"
@@ -71,8 +72,9 @@ func main() {
 
 	if *verboseFlag {
 		fmt.Printf("\nSignature Details:\n")
-		fmt.Printf("Signature (hex): %x\n", signature.Serialize())
-		fmt.Printf("Group Public Key (hex): %x\n", scheme.GroupPublicKey.Serialize())
+		fmt.Println("Message (hex):", hex.EncodeToString(message))
+		fmt.Printf("Signature Uncompressed 192 bytes(hex): %x\n", signature.SerializeUncompressed())
+		fmt.Printf("Group Public Key Uncompressed 96 bytes(hex): %x\n", scheme.GroupPublicKey.SerializeUncompressed())
 
 		fmt.Printf("\nParticipating Node Public Keys:\n")
 		for _, nodeIndex := range signingNodes {

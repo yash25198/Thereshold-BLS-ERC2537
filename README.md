@@ -84,8 +84,7 @@ if result.IsValid {
 ## Track
 
 - [x] Add signature aggregation and verification
-- [ ] On-chain verification with EIP-2537
-- [ ] Add comprehensive test suite
+- [x] On-chain verification with EIP-2537
 
 ## References
 
